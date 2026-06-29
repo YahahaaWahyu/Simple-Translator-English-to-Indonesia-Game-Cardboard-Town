@@ -14,6 +14,9 @@ namespace TRtoINA
         {
             Log = Logger;
 
+            // Load file translation.json dan missing.json
+            TranslationDatabase.Load();
+
             Logger.LogInfo("==================================");
             Logger.LogInfo("TR to Indonesia Loaded!");
             Logger.LogInfo("Plugin berhasil dijalankan!");

@@ -8,7 +8,7 @@ namespace TRtoINA
     {
         static void Prefix(Card __instance)
         {
-            IndonesiaMod.Log.LogInfo($"UpdateCardUI -> {__instance.GetName()}");
+            // Tidak perlu log lagi.
         }
     }
 }

@@ -1,9 +1,0 @@
-D:\ModdingINA\TRtoINA\bin\Debug\net472\TRtoINA.dll
-D:\ModdingINA\TRtoINA\bin\Debug\net472\TRtoINA.pdb
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.csproj.AssemblyReference.cache
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.GeneratedMSBuildEditorConfig.editorconfig
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.AssemblyInfoInputs.cache
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.AssemblyInfo.cs
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.csproj.CoreCompileInputs.cache
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.dll
-D:\ModdingINA\TRtoINA\obj\Debug\net472\TRtoINA.pdb

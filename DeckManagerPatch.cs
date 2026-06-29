@@ -1,7 +1,5 @@
-using System.Reflection;
 using HarmonyLib;
 using CardSystem;
-using Classes;
 
 namespace TRtoINA
 {
@@ -10,27 +8,41 @@ namespace TRtoINA
     {
         static void Postfix(DeckManager __instance)
         {
-            FieldInfo englishField = typeof(LocalizedTitle).GetField(
-                "english",
-                BindingFlags.Instance | BindingFlags.NonPublic);
+            int translatedNames = 0;
+            int translatedDescriptions = 0;
 
             foreach (var card in __instance.AllCards)
             {
-                string english =
-                    englishField.GetValue(card.cardName)?.ToString();
+                // ==========================
+                // Terjemahkan Nama
+                // ==========================
+                string oldTitle = ReflectionHelper.GetTitleEnglish(card.cardName);
+                string newTitle = Translator.Translate(oldTitle);
 
-                string indonesia = Translator.Translate(english);
-
-                if (english != indonesia)
+                if (oldTitle != newTitle)
                 {
-                    englishField.SetValue(card.cardName, indonesia);
+                    ReflectionHelper.SetTitleEnglish(card.cardName, newTitle);
+                    translatedNames++;
+                }
 
-                    IndonesiaMod.Log.LogInfo(
-                        $"{english} -> {indonesia}");
+                // ==========================
+                // Terjemahkan Deskripsi
+                // ==========================
+                string oldDesc = ReflectionHelper.GetTextEnglish(card.description);
+                string newDesc = Translator.Translate(oldDesc);
+
+                if (oldDesc != newDesc)
+                {
+                    ReflectionHelper.SetTextEnglish(card.description, newDesc);
+                    translatedDescriptions++;
                 }
             }
 
-            IndonesiaMod.Log.LogInfo("=== Translasi selesai ===");
+            IndonesiaMod.Log.LogInfo("==================================");
+            IndonesiaMod.Log.LogInfo("TR to Indonesia");
+            IndonesiaMod.Log.LogInfo($"Nama diterjemahkan      : {translatedNames}");
+            IndonesiaMod.Log.LogInfo($"Deskripsi diterjemahkan : {translatedDescriptions}");
+            IndonesiaMod.Log.LogInfo("==================================");
         }
     }
 }
